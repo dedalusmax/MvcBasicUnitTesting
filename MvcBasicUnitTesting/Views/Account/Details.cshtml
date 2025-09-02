@@ -1,0 +1,55 @@
+﻿@model Account
+
+@{
+    ViewData["Title"] = "Detalji računa";
+}
+
+<div>
+    <h4>Račun</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+    </dl>
+
+    <table>
+        <thead>
+            <tr class="row">
+                <th>
+                    ID
+                </th>
+                <th>
+                    Iznos
+                </th>
+            </tr>
+        </thead>
+        @foreach (var t in Model.Transactions)
+        {
+            <tr class="row">
+                <td>@t.Id</td>
+                <td>@t.Amount</td>
+            </tr>
+        }
+    </table>
+
+</div>
+<div>
+    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id  }) |
+    <a asp-action="Index">Natrag na popis</a>
+</div>

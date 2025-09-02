@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Stranica za testiranje";
+}
+
+<p>ovo je drugi test!</p>
+
+@{
+    var datum = DateTime.Now;
+    var poruka = "Danas je lijepi dan!";
+
+    // if (datum.DayOfWeek == DayOfWeek.Saturday || datum.DayOfWeek == DayOfWeek.Sunday)
+    // {
+    //     poruka = "Ugodan vikend! :)";
+    // }
+    // else
+    // {
+    //     poruka = "Još radimo! :(";
+    // }
+}
+
+<h2>@datum</h2>
+<h3>@poruka</h3>
+
+@if (datum.DayOfWeek == DayOfWeek.Saturday || datum.DayOfWeek == DayOfWeek.Sunday)
+{
+    @:Ugodan vikend!
+}
+else
+{
+    @:Još radimo! :(
+}
+
+<div>
+    @for (var i = 0; i < 5; i++)
+    {
+        @i.ToString()
+        <br/>
+    }
+</div>
